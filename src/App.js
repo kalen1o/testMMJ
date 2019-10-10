@@ -1,26 +1,57 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import TabsComponent from './components/TabsComponent';
+import Content from './components/Content';
+import users from './data/users.js';
+
+class App extends React.Component {
+  state = {
+    activeTab: 1
+  }
+
+  onTabClick = (event) => {
+    if(this.state.activeTab === +event.target.innerHTML.slice(4, event.target.innerHTML.length)) return
+    this.setState({activeTab: +event.target.innerHTML.slice(4, event.target.innerHTML.length)})
+  }
+
+  renderSwitch = (param) => {
+    let ContentWrapper = () => (
+      <div className="content">
+        <Content users={users[param - 1]}/>
+      </div>
+    )
+    switch (param) {
+      case 1:
+        return (
+          <ContentWrapper />
+        )
+      case 2:
+        return (
+          <ContentWrapper />
+        )
+      case 3:
+        return (
+          <ContentWrapper />
+        )
+      case 4:
+        return (
+          <ContentWrapper />
+        )
+      default: 
+          break;
+    }
+  }
+
+  render() {
+    let { activeTab } = this.state;
+    return (
+      <div className="App">
+        <TabsComponent onTabClick={this.onTabClick.bind(this)} activeTab={activeTab}/>
+        {this.renderSwitch(activeTab)}
+      </div>
+    );
+  }
 }
 
 export default App;

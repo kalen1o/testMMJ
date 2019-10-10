@@ -1,0 +1,26 @@
+.btn {
+	position: relative;
+	min-width: 150px;
+	text-align: center;
+	padding: 30px 0;
+	margin-right: 15px;
+	background: #4c71b5;
+	border: none;
+	border-radius: 40px;
+	outline: none;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.active {
+	position: absolute;
+	top: -5px;
+	width: 150px;
+	padding: 30px 0;
+	background: rgba(145, 168, 209, .8);
+	border: none;
+	border-radius: 40px;
+	outline: none;
+}

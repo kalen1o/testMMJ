@@ -1,0 +1,19 @@
+.tab {
+	width: 25%;
+	background: #91a8d1;
+	padding: 30px 60px;
+	color: #fefefe;
+	border-right: 1px solid #ccd7e9;
+	text-align: center;
+	font-family: myriad-pro, sans-serif;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.tab:last-child {
+	border-right: none;
+}
+
+.active {
+	background: #4c71b5;
+}
